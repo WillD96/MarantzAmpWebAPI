@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect
-import os
+import subprocess
 
 DEV = "/dev/lirc0"
 IRCTLBIN = "/usr/bin/ir-ctl"
@@ -29,11 +29,13 @@ def index():
 def execCommand(command):
     toExec = formCommand(command)
     if toExec:
-        res = os.system(toExec)
-        if res == 0:
+        res = subprocess.check_output(toExec, shell=True)
+        '''if res == 0:
             print("Command '{}' executed successfully.".format(toExec))
         else:
-            print("Issue executing command. Status code: {}".format(res))
+            print("Issue executing command. Status code: {}".format(res))'''
+        if res:
+            print(res)
     return redirect("/")
 
 
