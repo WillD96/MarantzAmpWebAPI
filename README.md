@@ -8,3 +8,13 @@ The "API" has several basic commands, each of which is mapped to the IR Code req
 It requires a Raspberry Pi and an IR LED - in this case just using a breadboard.
 
 Can be used via Node Red for nice Home Automation integration. 
+
+### Supported Commands
+- TogglePower
+- VolumeUp
+- VolumeDown
+- InputOptical
+- InputCoaxial
+- InputPhono
+- Mute
+- SourceDirect
